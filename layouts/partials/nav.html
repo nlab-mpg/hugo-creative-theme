@@ -16,14 +16,14 @@
         {{ "<!-- Collect the nav links, forms, and other content for toggling -->" | safeHTML }}
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                {{ if and .Site.Params.about .Site.Params.navigation.links.about }}
+                {{ if .Site.Params.navigation.links.members }}
                     <li>
-                        <a class="page-scroll" href="#about">{{ .Site.Params.navigation.links.about }}</a>
+                        <a href="{{ "members" | relLangURL }}">{{ .Site.Params.navigation.links.members }}</a>
                     </li>
                 {{ end }}
-                {{ if and .Site.Params.services.list .Site.Params.navigation.links.services }}
+                {{ if and .Site.Params.projects.list .Site.Params.navigation.links.projects }}
                     <li>
-                        <a class="page-scroll" href="#services">{{ .Site.Params.navigation.links.services }}</a>
+                        <a class="page-scroll" href="#projects">{{ .Site.Params.navigation.links.projects }}</a>
                     </li>
                 {{ end }}
                 {{ if and .Site.Data.projects .Site.Params.navigation.links.portfolio }}
@@ -40,6 +40,15 @@
                     <li>
                         <a class="page-scroll" href="#contact">{{ .Site.Params.navigation.links.contact }}</a>
                     </li>
+                {{ end }}
+                {{ $currentLang := .Site.Language.Lang }}
+                {{ $baseURL := .Site.BaseURL }}  
+                {{ range $lang := .Site.Languages }}
+                    {{ if ne $currentLang (string $lang) }}
+                        <li>
+                            <a href="{{ printf "%s%s" $baseURL $lang }}">{{ $lang.LanguageName }}</a>
+                        </li>
+                    {{ end }}
                 {{ end }}
             </ul>
         </div>
