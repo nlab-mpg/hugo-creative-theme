@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
-    <head>
-        {{ partial "head.html" . }}
-    </head>
-    <body id="page-top">
+
+{{ partial "head.html" . }}
         {{ if or .Site.Params.navigation.links.about .Site.Params.navigation.links.projects .Site.Params.navigation.links.portfolio .Site.Params.navigation.links.contact }}
             {{ partial "nav.html" . }}
         {{ end }}
@@ -40,8 +36,4 @@
             {{ partial "modals.html" . }}
         {{ end }}
 
-        {{ partial "js.html" . }}
-
-        {{ template "_internal/google_analytics.html" . }}
-    </body>
-</html>
+{{ partial "footer.html" . }}

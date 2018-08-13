@@ -1,0 +1,17 @@
+{{ partial "head.html" . }}
+<!-- List page -->
+
+<section id="list">
+    <div class="container">
+        <div class="text-center">
+            <h2>Publications</h2>
+        </div>
+
+        <div class="list">
+            {{ range .Data.Pages }}
+            <hr>
+            {{ .Date.Format "Jan 2 2006" }}, {{ .Params.authors }}, <a href="{{ .Permalink }}"><strong>{{ .Title}}</strong></a>, ({{ .Params.conference }}) {{ end }}
+        </div>
+    </div>
+</section>
+{{ partial "footer.html" . }}

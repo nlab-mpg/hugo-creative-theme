@@ -1,0 +1,12 @@
+{{ partial "head.html" . }}
+<!-- List page -->
+
+<section id="list">
+    <div class="container">
+    {{ range .Data.Pages }}
+    <hr>
+      {{ .Params.authors }}. <a href="{{ .Permalink }}"><strong>{{ .Title}}</strong></a>  ({{ .Params.conference }})
+    {{ end }}
+    </div>
+</section>
+{{ partial "footer.html" . }}
