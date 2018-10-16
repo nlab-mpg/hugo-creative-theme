@@ -1,5 +1,17 @@
 {{ partial "head.html" . }}
 <!-- List page -->
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <div class="navbar-header">
+                <a class="navbar-brand page-scroll" href="{{ .Site.BaseURL }}">
+                    {{ .Site.Params.navigation.brand }}
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
 
 <section id="list">
     <div class="container">
@@ -10,16 +22,17 @@
         <div class="container-fluid">
             <div class="row no-gutter">
                 {{ range .Site.Data.members }}
-                    <div class="col-lg-2 col-sm-6">
-                        <a href="" class="portfolio-box portfolio-link" data-toggle="modal">
-                            <img src="/img/members/{{ .img }}" class="img-responsive" alt="">
-                                <div class="portfolio-box-caption">
-                                    <div class="portfolio-box-caption-content">
-                                                {{ .name }}
-                                    </div>
-                                </div>
-                        </a>
+                <div class="col-lg-3 col-sm-4 col-xs-6 col-md-3">
+                    <img src="/img/members/{{ .img }}" class="img-responsive" alt="">
+                    <div class="portfolio-box-caption">
+                        <!-- <div class="portfolio-box-caption-content">
+                            {{ .name }}
+                        </div> -->
+                        <div class="bg-primary">
+                            <p margin="auto">{{ .name }}</p>
+                        </div>
                     </div>
+                </div>
                 {{ end }}
             </div>
         </div>
