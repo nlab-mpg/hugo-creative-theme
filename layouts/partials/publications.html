@@ -1,0 +1,12 @@
+{{ "<!-- ASIDE -->" | safeHTML }}
+
+<aside class="bg-dark">
+    <div class="container text-center">
+        <div class="call-to-action">
+            {{ with .Site.Params.publications.headline }}<h2>{{ . }}</h2>{{ end }}
+            {{ if and .Site.Params.publications.button.link .Site.Params.publications.button.text }}
+                <a href="{{ .Site.Params.publications.button.link }}" class="btn btn-default btn-xl wow tada">{{ .Site.Params.publications.button.text }}</a>
+            {{ end }}
+        </div>
+    </div>
+</aside>

@@ -1,0 +1,12 @@
+{{ partial "head.html" . }}
+<section id="paper">
+    <div class="container">
+        <div class="text-center">
+            <h2>{{ .Params.Title }}</h2>
+            {{ .Params.authors }}, ({{ .Date.Format "Jan 2 2006" }}, {{ .Params.conference }})
+        </div>
+        <hr>
+        {{ .Content }}
+    </div>
+</section>
+{{ partial "footer.html" . }}
