@@ -1,11 +1,26 @@
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
+    <div class="container-fluid-dummy">
+        <!-- need to resolve this dummy -->
+        <div class="container-fluid">
 
             <div class="navbar-header">
                 <a class="navbar-brand page-scroll" href="{{ .Site.BaseURL }}">
                     {{ .Site.Params.navigation.brand }}
                 </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                    {{ $currentLang := .Site.Language.Lang }}
+                    {{ $baseURL := .Site.BaseURL }}
+                    {{ range $lang := .Site.Languages }}
+                    {{ if ne $currentLang (string $lang) }}
+                    <li>
+                        <a href="{{ printf "%s%s" $baseURL $lang }}">{{ $lang.LanguageName }}</a>
+                    </li>
+                    {{ end }}
+                    {{ end }}
+                </ul>
             </div>
         </div>
     </div>

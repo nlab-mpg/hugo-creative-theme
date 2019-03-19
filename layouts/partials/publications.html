@@ -5,7 +5,10 @@
         <div class="call-to-action">
             {{ with .Site.Params.publications.headline }}<h2>{{ . }}</h2>{{ end }}
             {{ if and .Site.Params.publications.button.link .Site.Params.publications.button.text }}
-                <a href="{{ .Site.Params.publications.button.link }}" class="btn btn-default btn-xl wow tada">{{ .Site.Params.publications.button.text }}</a>
+
+                <!-- todo: enable  -->
+                <!-- <a href="{{ .Site.Params.publications.button.link }}" class="btn btn-default btn-xl wow tada">{{ .Site.Params.publications.button.text }}</a> -->
+                <a href="{{ .Site.BaseURL }}pub" class="btn btn-default btn-xl wow tada">{{ .Site.Params.publications.button.text }}</a>
             {{ end }}
         </div>
     </div>
